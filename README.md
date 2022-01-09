@@ -5,7 +5,7 @@
 [官方文档](http://chuanwise.cn:10074/#/manual)  
 [小明host常见问题](http://chuanwise.cn:10074/#/question)
 
-####它可以让你在qq群聊中发送fawe的指令来帮助你用法
+#### 它可以让你在qq群聊中发送fawe的指令来帮助你用法
 <details>  
 
 <summary>共 153 条指令(下列展开)：  </summary>
