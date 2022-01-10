@@ -543,7 +543,7 @@ public class faweHelperInteractors extends SimpleInteractors<faweHelperPlugin> {
                 "权限： worldedit.brush.cylinder\n" +
                 "说明： 创建圆柱体。\n" +
                 "-h 标记会创建中空的圆柱体。");
-        user.sendMessage("/brush shatter <pattern> [radius=10] [count=10] \n" +
+        user.sendPrivateMessage("/brush shatter <pattern> [radius=10] [count=10] \n" +
                 "权限： worldedit.brush.shatter\n" +
                 "说明： 创建将地形分成多个部分的不均匀的线\n" +
                 "图片： https://i.imgur.com/2xKsZf2.png\n" +
@@ -607,7 +607,7 @@ public class faweHelperInteractors extends SimpleInteractors<faweHelperPlugin> {
                 "-h 标记仅会创建其外壳\n" +
                 "-s 标记在创建之后会选择点击的点。\n" +
                 "-f 标记会创建平坦的线段。");
-        user.sendMessage("/brush height [radius=5] [file|#clipboard|imgur=null] [rotation=0] [yscale=1.00] [-h]\n" +
+        user.sendPrivateMessage("/brush height [radius=5] [file|#clipboard|imgur=null] [rotation=0] [yscale=1.00] [-h]\n" +
                 "权限： worldedit.brush.height\n" +
                 "说明： 这个笔刷可以使地形上升或下降。\n" +
                 "- -r 标记启用随机坐标旋转\n" +
