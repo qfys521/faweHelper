@@ -2,10 +2,12 @@ package cn.qfys521.faweHelper;
 
 import cn.chuanwise.xiaoming.plugin.JavaPlugin;
 import cn.chuanwise.xiaoming.plugin.Plugin;
+
 import cn.qfys521.faweHelper.iterator.faweHelperInteractors;
 
 
-public class faweHelperPlugin extends JavaPlugin {
+public class faweHelperPlugin extends JavaPlugin implements Plugin {
+
 
     public static final faweHelperPlugin INSTANCE = new faweHelperPlugin();
 
@@ -20,7 +22,7 @@ public class faweHelperPlugin extends JavaPlugin {
         getLogger().warn("//brush、/tool、//masks、/patterms、/schematic、/anvil和/transforms会导致大量刷屏，请谨慎使用");
         getLogger().warn("为了安全起见，本命令提示已要求在获得权限'fawe.warn.question'下才可使用");
         getLogger().warn("且发送时会私信调用.");
-        getXiaomingBot().getInteractorManager().registerInteractors(new faweHelperInteractors(), this);
+        getXiaoMingBot().getInteractorManager().registerInteractors(new faweHelperInteractors(), this);
 
     }
 } 
