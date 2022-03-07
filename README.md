@@ -1,5 +1,5 @@
-# faweHelper
-Xiaoming plugins:faweHelper
+# faweUtilPro
+Xiaoming plugins:faweUtilPro
 ># faweHelper：
 >>一款基于 ***[XiaomingHost](https://github.com/chuanweise/XiaoMingBot/)*** 编写的插件
 [小明连接](https://github.com/chuanweise/XiaoMingBot)  
