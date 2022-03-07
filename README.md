@@ -1,6 +1,6 @@
 # faweUtilPro
 Xiaoming plugins:faweUtilPro
-># faweHelper：
+># faweUtilPro：
 >>一款基于 ***[XiaomingHost](https://github.com/chuanweise/XiaoMingBot/)*** 编写的插件
 [小明连接](https://github.com/chuanweise/XiaoMingBot)  
 [官方文档](http://chuanwise.cn:10074/#/manual)  
