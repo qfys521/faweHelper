@@ -3,10 +3,8 @@ package cn.qfys521.faweUtil.Pro.iterator;
 import cn.chuanwise.xiaoming.annotation.Filter;
 import cn.chuanwise.xiaoming.annotation.FilterParameter;
 import cn.chuanwise.xiaoming.annotation.Required;
-import cn.chuanwise.xiaoming.user.XiaoMingUser;
 import cn.chuanwise.xiaoming.interactor.SimpleInteractors;
-
-import cn.qfys521.faweUtil.Pro.faweUtilProPlugin;
+import cn.chuanwise.xiaoming.user.XiaoMingUser;
 
 public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUtil.Pro.faweUtilProPlugin> {
     @Required("fawe.question")
@@ -17,7 +15,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawe.question")
     @Filter("/we")
-    @Filter("/we {commands}")
+    @Filter("/we {r:commands}")
     public void we(XiaoMingUser user,
                    @FilterParameter("commands")String commands){
         user.sendMessage("/we <命令>");
@@ -55,7 +53,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawe.question")
     @Filter("/we tz")
-    @Filter("/we tz {timezone}")
+    @Filter("/we tz {r:timezone}")
     public void timezone(XiaoMingUser user,
                          @FilterParameter("timezone")String timezone) {
         user.sendMessage("/we tz [timezone]" + "\n" + "说明： 设定时区，方便为快照命名");
@@ -69,7 +67,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawe.question")
     @Filter("/remove")
-    @Filter("/remove {type}")
+    @Filter("/remove {r:type}")
     public void remove(XiaoMingUser user,
                        @FilterParameter("type")String type) {
         user.sendMessage("/remove <type> <radius>\n" +
@@ -79,7 +77,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawe.question")
     @Filter("//fill")
-    @Filter("//fill {block}")
+    @Filter("//fill {r:block}")
     public void fill(XiaoMingUser user,
                      @FilterParameter("block")String block) {
         user.sendMessage("//fill <block> <radius> [depth]\n" +
@@ -98,7 +96,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawe.question")
     @Filter("//drain")
-    @Filter("//drain {radius}")
+    @Filter("//drain {r:radius}")
     public void drain(XiaoMingUser user,
                       @FilterParameter("radius")String radius) {
         user.sendMessage("//drain <radius>\n" +
@@ -108,7 +106,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawe.question")
     @Filter("//removenear")
-    @Filter("//removenear {block}")
+    @Filter("//removenear {r:block}")
     public void removenear(XiaoMingUser user,
                            @FilterParameter("block")String block) {
         user.sendMessage("//removenear <block> [size]\n" +
@@ -118,7 +116,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawe.question")
     @Filter("//fillr")
-    @Filter("//fillr {block}")
+    @Filter("//fillr {r:block}")
     public void fillr(XiaoMingUser user,
                       @FilterParameter("block")String block) {
         user.sendMessage("//fillr <block> <radius> [depth]\n" +
@@ -138,7 +136,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawe.question")
     @Filter("//fixlava")
-    @Filter("//fixlava {radius}")
+    @Filter("//fixlava {r:radius}")
     public void fixlava(XiaoMingUser user,
                         @FilterParameter("radius")String radius) {
         user.sendMessage("//fixlava <radius>\n" +
@@ -158,7 +156,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawe.question")
     @Filter("//fixwater")
-    @Filter("//fixwarwe {radius}")
+    @Filter("//fixwarwe {r:radius}")
     public void fixwater(XiaoMingUser user,
                          @FilterParameter("radius")String raidus) {
         user.sendMessage("//fixwater <radius>\n" +
@@ -176,7 +174,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawe.question")
     @Filter("//replacenear")
-    @Filter("//replacenear {command}")
+    @Filter("//replacenear {r:command}")
     public void replacenear(XiaoMingUser user,
                             @FilterParameter("command")String command) {
         user.sendMessage("//replacenear <size> <from-id> <to-id> [-f]\n" +
@@ -186,7 +184,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawe.question")
     @Filter("//snow")
-    @Filter("//snow {command}")
+    @Filter("//snow {r:command}")
     public void snow(XiaoMingUser user,
                      @FilterParameter("command")String command) {
         user.sendMessage("//snow [radius]\n" +
@@ -196,7 +194,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawe.question")
     @Filter("/butcher")
-    @Filter("/nutcher {command}")
+    @Filter("/nutcher {r:command}")
     public void butcher(XiaoMingUser user,
                         @FilterParameter("command")String command) {
         user.sendMessage("/butcher [radius] [-p] [-l] [-a] [-n] [-g] [-b] [-t] [-f] [-r]\n" +
@@ -216,7 +214,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawe.question")
     @Filter("//ex")
-    @Filter("//ex {command}")
+    @Filter("//ex {r:command}")
     public void ex(XiaoMingUser user,
                    @FilterParameter("command")String command) {
         user.sendMessage("//ex [radius]\n" +
@@ -226,7 +224,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawe.question")
     @Filter("//thaw")
-    @Filter("//thaw {command}")
+    @Filter("//thaw {r:command}")
     public void thaw(XiaoMingUser user,
                      @FilterParameter("command")String command) {
         user.sendMessage("//thaw [radius]\n" +
@@ -236,7 +234,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawe.question")
     @Filter("//calc")
-    @Filter("//calc {command}")
+    @Filter("//calc {r:command}")
     public void calc(XiaoMingUser user,
                      @FilterParameter("command")String command) {
         user.sendMessage("//calc <expression>\n" +
@@ -253,7 +251,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawequestion")
     @Filter("//replace")
-    @Filter("//replace {command}")
+    @Filter("//replace {r:command}")
     public void replace(XiaoMingUser user,
                         @FilterParameter("command")String command) {
         user.sendMessage("//replace [from-mask] <to-pattern> [-f]\n" +
@@ -263,7 +261,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawe.question")
     @Filter("//stack")
-    @Filter("//stack {command}")
+    @Filter("//stack {r:command}")
     public void stack(XiaoMingUser user,
                       @FilterParameter("command")String command) {
         user.sendMessage("//stack [count] [direction] [-s] [-a] [-m]\n" +
@@ -276,7 +274,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawe.question")
     @Filter("//set")
-    @Filter("//set {command}")
+    @Filter("//set {r:command}")
     public void set(XiaoMingUser user,
                     @FilterParameter("command")String command) {
         user.sendMessage("//set [pattern]\n" +
@@ -286,7 +284,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawe.question")
     @Filter("//fall")
-    @Filter("//fall {command}")
+    @Filter("//fall {r:command}")
     public void fall(XiaoMingUser user,
                      @FilterParameter("command")String command) {
         user.sendMessage("//fall [replace] [-m]\n" +
@@ -297,7 +295,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawe.question")
     @Filter("//faces")
-    @Filter("//faces {command}")
+    @Filter("//faces {r:command}")
     public void faces(XiaoMingUser user,
                       @FilterParameter("command")String command) {
         user.sendMessage("//faces <block>\n" +
@@ -307,7 +305,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawe.question")
     @Filter("//center")
-    @Filter("//center {command}")
+    @Filter("//center {r:command}")
     public void center(XiaoMingUser user,
                        @FilterParameter("command")String command) {
         user.sendMessage("//center <block>\n" +
@@ -317,7 +315,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawe.question")
     @Filter("//hollow")
-    @Filter("//hollow {command}")
+    @Filter("//hollow {r:command}")
     public void hollow(XiaoMingUser user,
                        @FilterParameter("command")String command) {
         user.sendMessage("//hollow [<thickness>[ <block>]]\n" +
@@ -828,9 +826,9 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawe.question")
     @Filter("/sp")
-    @Filter("/sp {type}")
+    @Filter("/sp {r:type}")
     @Filter("/superpickaxe")
-    @Filter("/superpickaxe {type}")
+    @Filter("/superpickaxe {r:type}")
     public void superpickaxe(XiaoMingUser user,
                              @FilterParameter("type")String type) {
         user.sendMessage("/sp recur <radius>\n" +
@@ -854,7 +852,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawe.question")
     @Filter("//overlay")
-    @Filter("//overlay {block}")
+    @Filter("//overlay {r:block}")
     public void overlay(XiaoMingUser user,
                         @FilterParameter("block")String block) {
         user.sendMessage("//overlay <block>\n" +
@@ -896,7 +894,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawe.question")
     @Filter("//curve")
-    @Filter("//curve {block}")
+    @Filter("//curve {r:block}")
     public void curve(XiaoMingUser user,
                       @FilterParameter("block")String block) {
         user.sendMessage("//curve <block> [thickness] [-h]\n" +
@@ -934,7 +932,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawe.question")
     @Filter("//lay")
-    @Filter("//lay {block}")
+    @Filter("//lay {r:block}")
     public void lay(XiaoMingUser user,
                     @FilterParameter("block")String block) {
         user.sendMessage("//lay <block>\n" +
@@ -959,7 +957,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawe.question")
     @Filter("/masks")
-    @Filter("/masks {command}")
+    @Filter("/masks {r:command}")
     public void masks2(XiaoMingUser user,
                        @FilterParameter("command")String command) {
         user.sendMessage("/masks [page=1|search|mask]\n" +
@@ -973,7 +971,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawe.question")
     @Filter("/smask")
-    @Filter("/smask {command}")
+    @Filter("/smask {r:command}")
     public void smask(XiaoMingUser user,
                       @FilterParameter("command")String command) {
         user.sendMessage("/smask [mask]\n" +
@@ -983,7 +981,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawe.question")
     @Filter("/secondary")
-    @Filter("/secondary {command}")
+    @Filter("/secondary {r:command}")
     public void secondary(XiaoMingUser user,
                           @FilterParameter("command")String command) {
         user.sendMessage("/secondary [brush arguments]\n" +
@@ -992,7 +990,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawe.question")
     @Filter("/scroll")
-    @Filter("/scroll {command}")
+    @Filter("/scroll {r:command}")
     public void scroll(XiaoMingUser user,
                        @FilterParameter("command")String command) {
         user.sendMessage("/scroll [none|clipboard|mask|pattern|range|size|visual|target]\n" +
@@ -1025,7 +1023,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawe.question")
     @Filter("//")
-    @Filter("// {command}")
+    @Filter("// {r:command}")
     public void superopen(XiaoMingUser user,
                           @FilterParameter("command")String command) {
         user.sendMessage("// [on|off]\n" +
@@ -1035,7 +1033,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawe.question")
     @Filter("/primary")
-    @Filter("/primary {command}")
+    @Filter("/primary {r:command}")
     public void primary(XiaoMingUser user,
                         @FilterParameter("command")String command) {
         user.sendMessage("/primary [brush arguments]\n" +
@@ -1044,7 +1042,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawe.question")
     @Filter("/transforms")
-    @Filter("/trnsforms {command}")
+    @Filter("/trnsforms {r:command}")
     public void transforms2(XiaoMingUser user,
                             @FilterParameter("command")String command) {
         user.sendMessage("/transforms [page=1|search|transform]\n" +
@@ -1057,7 +1055,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawe.question")
     @Filter("/loadbrush")
-    @Filter("/loadbrush {command}")
+    @Filter("/loadbrush {r:command}")
     public void loadbrush(XiaoMingUser user,
                           @FilterParameter("command")String command) {
         user.sendMessage("/loadbrush [name]\n" +
@@ -1067,7 +1065,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawe.question")
     @Filter("/savebrush")
-    @Filter("/savebrush {command}")
+    @Filter("/savebrush {r:command}")
     public void savebrush(XiaoMingUser user,
                           @FilterParameter("command")String command) {
         user.sendMessage("/savebrush [name]\n" +
@@ -1077,7 +1075,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
 
     @Required("fawe.question")
-    @Filter("/patterns {command}")
+    @Filter("/patterns {r:command}")
     @Filter("/patterns")
     public void patterns(XiaoMingUser user,
                          @FilterParameter("command")String command) {
@@ -1090,7 +1088,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
 
     @Required("fawe.question")
-    @Filter("/mat {command}")
+    @Filter("/mat {r:command}")
     @Filter("/mat")
     public void mat(XiaoMingUser user,
                     @FilterParameter("command")String command) {
@@ -1101,7 +1099,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawe.question")
     @Filter("/transform")
-    @Filter("/transfrom {command}")
+    @Filter("/transfrom {r:command}")
     public void transform(XiaoMingUser user,
                           @FilterParameter("command")String command) {
         user.sendMessage("/transform [transform]\n" +
@@ -1111,7 +1109,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawe.question")
     @Filter("/generatebiome")
-    @Filter("/generarebiome {command}")
+    @Filter("/generarebiome {r:command}")
     public void generatebiome(XiaoMingUser user,
                               @FilterParameter("command")String command) {
         user.sendMessage("//generatebiome <biome> <expression> [-h] [-r] [-o] [-c]\n" +
@@ -1130,7 +1128,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawe.question")
     @Filter("/biomeinfo")
-    @Filter("biomeinfo {command}")
+    @Filter("biomeinfo {r:command}")
     public void biomeinfo(XiaoMingUser user,
                           @FilterParameter("command")String command) {
         user.sendMessage("/biomeinfo [-p] [-t]\n" +
@@ -1143,7 +1141,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawe.question")
     @Filter("//setbiome")
-    @Filter("//setbiome{command}")
+    @Filter("//setbiome{r:command}")
     public void setbiome(XiaoMingUser user,
                          @FilterParameter("command")String command) {
         user.sendMessage("//setbiome <biome> [-p]\n" +
@@ -1155,7 +1153,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawe.question")
     @Filter("//hsphere")
-    @Filter("//hsphere {command}")
+    @Filter("//hsphere {r:command}")
     public void hsphere(XiaoMingUser user,
                         @FilterParameter("command")String command) {
         user.sendMessage("//hsphere <block> <radius>[,<radius>,<radius>] [raised?]\n" +
@@ -1168,7 +1166,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawe.question")
     @Filter("//hcyl")
-    @Filter("//hcyl {command}")
+    @Filter("//hcyl {r:command}")
     public void hcyl(XiaoMingUser user,
                      @FilterParameter("command")String command) {
         user.sendMessage("//hcyl <pattern> <radius>[,<radius>] [height]\n" +
@@ -1181,7 +1179,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawe.question")
     @Filter("//caves")
-    @Filter("//caves {command}")
+    @Filter("//caves {r:command}")
     public void caves(XiaoMingUser user,
                       @FilterParameter("command")String command) {
         user.sendMessage("//caves [size=8] [freq=40] [rarity=7] [minY=8] [maxY=127] [sysFreq=1] [sysRarity=25] [pocketRarity=0] [pocketMin=0] [pocketMax=3]\n" +
@@ -1191,7 +1189,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawe.question")
     @Filter("//generate")
-    @Filter("//generate {command}")
+    @Filter("//generate {r:command}")
     public void generate(XiaoMingUser user,
                          @FilterParameter("command")String command) {
         user.sendMessage("//generate <block> <expression> [-h] [-r] [-o] [-c]\n" +
@@ -1210,7 +1208,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawe.question")
     @Filter("//sphere")
-    @Filter("//sphere {command}")
+    @Filter("//sphere {r:command}")
     public void sphere(XiaoMingUser user,
                        @FilterParameter("command")String command) {
         user.sendMessage("//sphere <block> <radius>[,<radius>,<radius>] [raised?] [-h]\n" +
@@ -1223,7 +1221,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawe.question")
     @Filter("//cyl")
-    @Filter("//cyl {command}")
+    @Filter("//cyl {r:command}")
     public void cyl(XiaoMingUser user,
                     @FilterParameter("command")String command) {
         user.sendMessage("//cyl <block> <radius>[,<radius>] [height] [-h]\n" +
@@ -1236,7 +1234,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawe.question")
     @Filter("//lazycut")
-    @Filter("//lazycut {command}")
+    @Filter("//lazycut {r:command}")
     public void lazycut(XiaoMingUser user,
                         @FilterParameter("command")String command) {
         user.sendMessage("//lazycut [-e] [-m]\n" +
@@ -1251,7 +1249,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawe.question")
     @Filter("//paste")
-    @Filter("//paste {command}")
+    @Filter("//paste {r:command}")
     public void paste(XiaoMingUser user,
                       @FilterParameter("command")String command) {
         user.sendMessage("//paste [-s] [-a] [-o]\n" +
@@ -1282,7 +1280,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawe.question")
     @Filter("//place")
-    @Filter("//place {command}")
+    @Filter("//place {r:command}")
     public void place(XiaoMingUser user,
                       @FilterParameter("command")String command) {
         user.sendMessage("//place [-s] [-a] [-o]\n" +
@@ -1296,7 +1294,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawe.question")
     @Filter("//lazycopy")
-    @Filter("//lazycopy {command}")
+    @Filter("//lazycopy {r:command}")
     public void lazycopy(XiaoMingUser user,
                          @FilterParameter("command")String command) {
         user.sendMessage("//lazycopy [-e] [-m]\n" +
@@ -1311,7 +1309,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawe.question")
     @Filter("//rotate")
-    @Filter("//rotate {command}")
+    @Filter("//rotate {r:command}")
     public void rotate(XiaoMingUser user,
                        @FilterParameter("command")String command) {
         user.sendMessage("//rotate <y-axis> [<x-axis>] [<z-axis>]\n" +
@@ -1321,7 +1319,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("//copy")
-    @Filter("//copy {command}")
+    @Filter("//copy {r:command}")
     public void copy(XiaoMingUser user,
                      @FilterParameter("command")String command){
         user.sendMessage("//copy [-e] [-m]\n" +
@@ -1335,7 +1333,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("//forest")
-    @Filter("//forest {command}")
+    @Filter("//forest {r:command}")
     public void forest(XiaoMingUser user,
                        @FilterParameter("command")String command){
         user.sendMessage("//forest [type] [density]\n" +
@@ -1344,7 +1342,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("//flora")
-    @Filter("//flora {command}")
+    @Filter("//flora {r:command}")
     public void flora(XiaoMingUser user,
                       @FilterParameter("command")String command){
         user.sendMessage("//flora [density]\n" +
@@ -1353,7 +1351,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("//defrom")
-    @Filter("//defrom {command}")
+    @Filter("//defrom {r:command}")
     public void defrom(XiaoMingUser user,
                        @FilterParameter("command")String command){
         user.sendMessage("//deform <expression> [-r] [-o]\n" +
@@ -1366,7 +1364,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     ////////////////////////////////////////////////////
     @Required("fawe.question")
     @Filter("//regen")
-    @Filter("//regen {command}")
+    @Filter("//regen {r:command}")
     public void regen(XiaoMingUser user,
                    @FilterParameter("command")String command){
         user.sendMessage("//regen [biome] [seed]\n" +
@@ -1377,7 +1375,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("//cuont")
-    @Filter("//cuont {command}")
+    @Filter("//cuont {r:command}")
     public void count(XiaoMingUser user,
                    @FilterParameter("command")String command){
         user.sendMessage("//count <block> [-d]\n" +
@@ -1386,7 +1384,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("//searchitem")
-    @Filter("//searchitem {command}")
+    @Filter("//searchitem {r:command}")
     public void seachitem(XiaoMingUser user,
                    @FilterParameter("command")String command){
         user.sendMessage("//searchitem <query> [-b] [-i]\n" +
@@ -1396,7 +1394,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("//distr")
-    @Filter("//distr {command}")
+    @Filter("//distr {r:command}")
     public void distr(XiaoMingUser user,
                    @FilterParameter("command")String command) {
         user.sendMessage("//distr [-c] [-d]\n" +
@@ -1407,7 +1405,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("//outset")
-    @Filter("//outset {command}")
+    @Filter("//outset {r:command}")
     public void outset(XiaoMingUser user,
                    @FilterParameter("command")String command){
         user.sendMessage("//outset <amount> [-h] [-v]\n" +
@@ -1419,7 +1417,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("//inset")
-    @Filter("//inset {command}")
+    @Filter("//inset {r:command}")
     public void inset(XiaoMingUser user,
                    @FilterParameter("command")String command){
         user.sendMessage("//inset <amount> [-h] [-v]\n" +
@@ -1431,7 +1429,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("//chunk")
-    @Filter("//chunk {command}")
+    @Filter("//chunk {r:command}")
     public void chunk(XiaoMingUser user,
                    @FilterParameter("command")String command){
         user.sendMessage("//chunk [x,z coordinates] [-s] [-c]\n" +
@@ -1445,7 +1443,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("//frb")
-    @Filter("//frb {command}")
+    @Filter("//frb {r:command}")
     public void frb(XiaoMingUser user,
                    @FilterParameter("command")String command){
         user.sendMessage("//frb <user=qfys521> <radius=5> <time=3d4h>\n" +
@@ -1455,7 +1453,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("/range")
-    @Filter("/range {command}")
+    @Filter("/range {r:command}")
     public void range(XiaoMingUser user,
                    @FilterParameter("command")String command){
         user.sendMessage("/range [pattern]\n" +
@@ -1464,7 +1462,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("/mask")
-    @Filter("/mask {command}")
+    @Filter("/mask {r:command}")
     public void mask(XiaoMingUser user,
                    @FilterParameter("command")String command){
         user.sendMessage("/mask [mask]\n" +
@@ -1473,7 +1471,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("//listbrush")
-    @Filter("//listbrush {command}")
+    @Filter("//listbrush {r:command}")
     public void listbrush(XiaoMingUser user,
                    @FilterParameter("command")String command){
         user.sendMessage("//listbrush [mine|<filter>] [page=1] [-d] [-n] [-p]\n" +
@@ -1483,7 +1481,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("/size")
-    @Filter("/size {command}")
+    @Filter("/size {r:command}")
     public void size(XiaoMingUser user,
                    @FilterParameter("command")String command){
         user.sendMessage("/size [pattern]\n" +
@@ -1492,7 +1490,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("/target")
-    @Filter("/target {command}")
+    @Filter("/target {r:command}")
     public void target(XiaoMingUser user,
                    @FilterParameter("command")String command){
         user.sendMessage("/target [mode]\n" +
@@ -1500,7 +1498,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("//fast")
-    @Filter("//fast {command}")
+    @Filter("//fast {r:command}")
     public void fast(XiaoMingUser user,
                    @FilterParameter("command")String command){
         user.sendMessage("//fast [on|off]\n" +
@@ -1509,7 +1507,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("//gmask")
-    @Filter("//gmask {command}")
+    @Filter("//gmask {r:command}")
     public void gmask(XiaoMingUser user,
                    @FilterParameter("command")String command){
         user.sendMessage("//gmask [mask]\n" +
@@ -1518,7 +1516,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.questionn")
     @Filter("//gsmask")
-    @Filter("//gsmask {command}")
+    @Filter("//gsmask {r:command}")
     public void gsmask(XiaoMingUser user,
                    @FilterParameter("command")String command){
         user.sendMessage("//gsmask [mask]\n" +
@@ -1527,7 +1525,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("//tips")
-    @Filter("//tips {command}")
+    @Filter("//tips {r:command}")
     public void tips(XiaoMingUser user,
                    @FilterParameter("command")String command){
         user.sendMessage("//tips\n" +
@@ -1535,7 +1533,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("//toggleplace")
-    @Filter("//toggleplace {command}")
+    @Filter("//toggleplace {r:command}")
     public void toggleplace(XiaoMingUser user,
                    @FilterParameter("command")String command){
         user.sendMessage("//toggleplace\n" +
@@ -1543,7 +1541,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("//gtransform")
-    @Filter("//gtransform {command}")
+    @Filter("//gtransform {r:command}")
     public void gtransform(XiaoMingUser user,
                    @FilterParameter("command")String command){
         user.sendMessage("//gtransform [transform]\n" +
@@ -1552,7 +1550,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("/delchunks")
-    @Filter("/delchunks {command}")
+    @Filter("/delchunks {r:command}")
     public void delchunks(XiaoMingUser user,
                    @FilterParameter("command")String command){
         user.sendMessage("/delchunks\n" +
@@ -1561,7 +1559,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("/listchunks")
-    @Filter("/listchunks {command}")
+    @Filter("/listchunks {r:command}")
     public void listchunks(XiaoMingUser user,
                    @FilterParameter("command")String command){
         user.sendMessage("/listchunks\n" +
@@ -1570,7 +1568,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("/chunkinfo")
-    @Filter("/chunkinfo {command}")
+    @Filter("/chunkinfo {r:command}")
     public void chunkinfo(XiaoMingUser user,
                    @FilterParameter("command")String command){
         user.sendMessage("/chunkinfo\n" +
@@ -1579,7 +1577,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("/.s")
-    @Filter("/.s {command}")
+    @Filter("/.s {r:command}")
     public void cs1(XiaoMingUser user,
                    @FilterParameter("command")String command){
         user.sendMessage("/.s [args...]\n" +
@@ -1588,7 +1586,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("/cs")
-    @Filter("/cs {command}")
+    @Filter("/cs {r:command}")
     public void cs2(XiaoMingUser user,
                    @FilterParameter("command")String command){
         user.sendMessage("/cs <filename> [args...]\n" +
@@ -1597,7 +1595,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("/restore")
-    @Filter("/restore {command}")
+    @Filter("/restore {r:command}")
     public void restore(XiaoMingUser user,
                    @FilterParameter("command")String command){
         user.sendMessage("/restore [snapshot]\n" +
@@ -1606,7 +1604,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("/snapshotsel")
-    @Filter("/snapshotsel {command}")
+    @Filter("/snapshotsel {r:command}")
     public void snapshotsel(XiaoMingUser user,
                    @FilterParameter("command")String command){
         user.sendMessage("/snapshotsel <index>\n" +
@@ -1615,7 +1613,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("//siza")
-    @Filter("//siza {command}")
+    @Filter("//siza {r:command}")
     public void size2(XiaoMingUser user,
                    @FilterParameter("command")String command){
         user.sendMessage("//size [-c]\n" +
@@ -1624,7 +1622,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("//expand")
-    @Filter("//expand {command}")
+    @Filter("//expand {r:command}")
     public void expand(XiaoMingUser user,
                    @FilterParameter("command")String command){
         user.sendMessage("//expand <amount> [reverse-amount] <direction>\n" +
@@ -1633,7 +1631,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("//shift")
-    @Filter("//shift {command}")
+    @Filter("//shift {r:command}")
     public void shift(XiaoMingUser user,
                    @FilterParameter("command")String command){
         user.sendMessage("//shift <amount> [direction]\n" +
@@ -1642,7 +1640,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("//sel")
-    @Filter("//sel {command}")
+    @Filter("//sel {r:command}")
     public void sel(XiaoMingUser user,
                    @FilterParameter("command")String command){
         user.sendMessage("//sel [cuboid|extend|poly|ellipsoid|sphere|cyl|convex] [-d]\n" +
@@ -1650,7 +1648,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("//contract")
-    @Filter("//contract {command}")
+    @Filter("//contract {r:command}")
     public void contract(XiaoMingUser user,
                    @FilterParameter("command")String command){
         user.sendMessage("//contract <amount> [reverse-amount] [direction]\n" +
@@ -1659,7 +1657,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("//pos1")
-    @Filter("//pos1 {command}")
+    @Filter("//pos1 {r:command}")
     public void pos1(XiaoMingUser user,
                    @FilterParameter("command")String command){
         user.sendMessage("//pos1 [coordinates]\n" +
@@ -1676,14 +1674,14 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
                 "说明： 设置选取点2");
     }
     @Required("fawe.question")
-    @Filter("//pos {command}")
+    @Filter("//pos {r:command}")
     @Filter("//pos")
     public void pos(XiaoMingUser user,
                     @FilterParameter("command")String command){
         user.sendMessage("//pos1"+"//pos2");
     }
     @Required("fawe.question")
-    @Filter("//hpos {command}")
+    @Filter("//hpos {r:command}")
     @Filter("//hpos")
     public void hpos(XiaoMingUser user,
                     @FilterParameter("command")String command){
@@ -1691,7 +1689,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("//hpos1")
-    @Filter("//hpos1 {command}")
+    @Filter("//hpos1 {r:command}")
     public void hpos1(XiaoMingUser user,
                    @FilterParameter("command")String command){
         user.sendMessage("//hpos1\n" +
@@ -1721,7 +1719,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("//redo")
-    @Filter("//redo {command}")
+    @Filter("//redo {r:command}")
     public void redo(XiaoMingUser user,
                    @FilterParameter("command")String command){
         user.sendMessage("//redo [times] [player]\n" +
@@ -1737,7 +1735,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("//undo")
-    @Filter("//undo {command}")
+    @Filter("//undo {r:command}")
     public void undo(XiaoMingUser user,
                    @FilterParameter("command")String command){
         user.sendMessage("//undo [times] [player]\n" +
@@ -1746,7 +1744,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("//flip")
-    @Filter("//flip {command}")
+    @Filter("//flip {r:command}")
     public void flip(XiaoMingUser user,
                    @FilterParameter("command")String command){
         user.sendMessage("//flip [<direction>]\n" +
@@ -1762,7 +1760,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("/asset")
-    @Filter("/asset {command}")
+    @Filter("/asset {r:command}")
     public void asset(XiaoMingUser user,
                    @FilterParameter("command")String command){
         user.sendMessage("/asset [category]\n" +
@@ -1778,7 +1776,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("//image")
-    @Filter("//image {command}")
+    @Filter("//image {r:command}")
     public void image(XiaoMingUser user,
                    @FilterParameter("command")String command){
         user.sendMessage("//image <imgur> [randomize=true] [complexity=100]\n" +
@@ -1787,7 +1785,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("//ore")
-    @Filter("//ore {command}")
+    @Filter("//ore {r:command}")
     public void ore(XiaoMingUser user,
                    @FilterParameter("command")String command){
         user.sendMessage("//ore <mask> <pattern> <size> <freq> <rarity> <minY> <maxY>\n" +
@@ -1796,7 +1794,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("//ores")
-    @Filter("//ores {command}")
+    @Filter("//ores {r:command}")
     public void ores(XiaoMingUser user,
                    @FilterParameter("command")String command){
         user.sendMessage("//ores\n" +
@@ -1805,7 +1803,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("/forestgen")
-    @Filter("/forestgen {command}")
+    @Filter("/forestgen {r:command}")
     public void forestgen(XiaoMingUser user,
                    @FilterParameter("command")String command){
         user.sendMessage("/forestgen [size] [type] [density]\n" +
@@ -1814,7 +1812,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("//hpyramid")
-    @Filter("//hpyramid {command}")
+    @Filter("//hpyramid {r:command}")
     public void hpyramid(XiaoMingUser user,
                    @FilterParameter("command")String command){
         user.sendMessage("//hpyramid <block> <size>\n" +
@@ -1823,7 +1821,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("/pumpkins")
-    @Filter("/pumpkins {command}")
+    @Filter("/pumpkins {r:command}")
     public void pumpkins(XiaoMingUser user,
                    @FilterParameter("command")String command){
         user.sendMessage("/pumpkins [size]\n" +
@@ -1832,7 +1830,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("//pyramid")
-    @Filter("//pyramid {command}")
+    @Filter("//pyramid {r:command}")
     public void pyramid(XiaoMingUser user,
                    @FilterParameter("command")String command){
         user.sendMessage("//pyramid <block> <size> [-h]\n" +
@@ -1841,7 +1839,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("/biomelist")
-    @Filter("/biomelist {command}")
+    @Filter("/biomelist {r:command}")
     public void biomelist(XiaoMingUser user,
                    @FilterParameter("command")String command){
         user.sendMessage("/biomelist [page]\n" +
@@ -1850,7 +1848,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("/descend")
-    @Filter("/descend {command}")
+    @Filter("/descend {r:command}")
     public void descend(XiaoMingUser user,
                    @FilterParameter("command")String command){
         user.sendMessage("/descend [# of floors]\n" +
@@ -1859,7 +1857,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("/ascend")
-    @Filter("/ascend {command}")
+    @Filter("/ascend {r:command}")
     public void ascend(XiaoMingUser user,
                    @FilterParameter("command")String command){
         user.sendMessage("/ascend [# of levels]\n" +
@@ -1875,7 +1873,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("/jumpto")
-    @Filter("/jumpto {command}")
+    @Filter("/jumpto {r:command}")
     public void jumpto(XiaoMingUser user,
                    @FilterParameter("command")String command){
         user.sendMessage("/jumpto [world,x,y,z]\n" +
@@ -1884,7 +1882,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("/ceil")
-    @Filter("/ceil {command}")
+    @Filter("/ceil {r:command}")
     public void ceil(XiaoMingUser user,
                    @FilterParameter("command")String command){
         user.sendMessage("/ceil [clearance] [-f] [-g]\n" +
@@ -1893,7 +1891,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("/up")
-    @Filter("/up {command}")
+    @Filter("/up {r:command}")
     public void up(XiaoMingUser user,
                    @FilterParameter("command")String command){
         user.sendMessage("/up <block> [-f] [-g]\n" +
@@ -1909,7 +1907,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("/snapshotlist")
-    @Filter("/snapshotlist {command}")
+    @Filter("/snapshotlist {r:command}")
     public void snapshotlist(XiaoMingUser user,
                    @FilterParameter("command")String command){
         user.sendMessage("/snapshotlist [num]\n" +
@@ -1918,7 +1916,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("/snapshotafter")
-    @Filter("/snapshotafter {command}")
+    @Filter("/snapshotafter {r:command}")
     public void snapshotafter(XiaoMingUser user,
                    @FilterParameter("command")String command){
         user.sendMessage("/snapshotafter <date>\n" +
@@ -1927,7 +1925,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("/snapshotbefore")
-    @Filter("/snapshotbefore {command}")
+    @Filter("/snapshotbefore {r:command}")
     public void snapshotbefore(XiaoMingUser user,
                    @FilterParameter("command")String command){
         user.sendMessage("/snapshotbefore <date>\n" +
@@ -1936,7 +1934,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
     }
     @Required("fawe.question")
     @Filter("/snapshotuse")
-    @Filter("/snapshotuse {command}")
+    @Filter("/snapshotuse {r:command}")
     public void snapshotuse(XiaoMingUser user,
                    @FilterParameter("command")String command){
         user.sendMessage("/snapshotuse <snapshot>\n" +
