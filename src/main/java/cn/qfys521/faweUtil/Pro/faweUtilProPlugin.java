@@ -1,11 +1,7 @@
 package cn.qfys521.faweUtil.Pro;
 
-import cn.chuanwise.xiaoming.interactor.Interactors;
 import cn.chuanwise.xiaoming.plugin.JavaPlugin;
-import cn.chuanwise.xiaoming.plugin.Plugin;
-
 import cn.qfys521.faweUtil.Pro.iterator.faweUtilProInteractors;
-
 
 
 /**
@@ -35,7 +31,6 @@ public class faweUtilProPlugin
     /** 插件启动时的回调方法 */
     @Override
     public void onEnable() {
-        getLogger().info("faweUtilPro opening");
         getXiaoMingBot().getInteractorManager().registerInteractors(new faweUtilProInteractors(), this);
     }
 }

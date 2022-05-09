@@ -166,6 +166,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawe.question")
     @Filter("//green")
+    @Filter("//green {r:radius}")
     public void green(XiaoMingUser user) {
         user.sendMessage("//green [radius] [-f]\n" +
                 "权限： worldedit.green\n" +
@@ -327,7 +328,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawe.question")
     @Filter("//smooth")
-    @Filter("//smooth")
+    @Filter("//smooth {r:radius}")
     public void smooth(XiaoMingUser user,
                        @FilterParameter("command")String command) {
         user.sendMessage("//smooth [iterations] [-n]\n" +
@@ -339,7 +340,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawe.question")
     @Filter("//nbtinfo")
-    @Filter("//nbtinfo")
+    @Filter("//nbtinfo {r:radius}")
     public void nbtinfo(XiaoMingUser user,
                         @FilterParameter("command")String command) {
         user.sendMessage("//nbtinfo\n" +
@@ -357,7 +358,7 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
 
     @Required("fawe.question")
     @Filter("//line")
-    @Filter("//line")
+    @Filter("//line {r:radius}")
     public void line(XiaoMingUser user,
                      @FilterParameter("command")String command) {
         user.sendMessage("//line <block> [thickness] [-h]\n" +
@@ -368,11 +369,10 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
                 "-h 仅会生成外壳");
     }
 
-    @Required("fawe.warn.question")
+    @Required("fawe.question")
     @Filter("//masks")
     public void masks(XiaoMingUser user) {
-        user.sendError("消息过长，我已经通过私信调用给你了QAQ");
-        user.sendPrivateMessage("蒙版 /Masks  \n" +
+        user.sendMessage("蒙版 /Masks  \n" +
                 "(关于蒙版方面的帮助 更多信息)\n" +
                 "蒙版决定了方块能否被放置\n" +
                 "- 使用 [brackets] 来输入参数 - 使用 , 来代表 或 的分割\n" +
@@ -447,11 +447,10 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
                 "\n");
     }
 
-    @Required("fawe.warn.question")
+    @Required("fawe.question")
     @Filter("/patterms")
     public void patterms(XiaoMingUser user) {
-        user.sendError("消息过长，我已经通过私信调用给你了QAQ");
-        user.sendPrivateMessage("样式 /Patterns\n" +
+        user.sendMessage("样式 /Patterns\n" +
                 "(对于某些方块样式信息的帮助。 更多信息)\n" +
                 "样式决定放置什么方块\n" +
                 "- 使用 [brackets] 输入参数\n" +
@@ -524,11 +523,10 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
                 "\n");
     }
 
-    @Required("fawe.warn.question")
+    @Required("fawe.question")
     @Filter("/transforms")
     public void transforms(XiaoMingUser user) {
-        user.sendError("消息过长，我已经通过私信调用给你了QAQ");
-        user.sendPrivateMessage("变换式 /Transforms\n" +
+        user.sendMessage("变换式 /Transforms\n" +
                 "(变换式的有关帮助。 更多信息)\n" +
                 "变换式会在放置方块之前，对其作出某种变化\n" +
                 "- 在 [brackets] 中输入参数\n" +
@@ -550,130 +548,120 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
                 "#linear3d <transform>\n");
     }
 
-   @Required("fawe.warn.question")
+   @Required("fawe.question")
     @Filter("//brush")
-    public void bursh(XiaoMingUser user) {
-        user.sendError("消息过长，我已经通过私信调用给你了QAQ");
-        user.sendPrivateMessage("/brush copypaste [depth=5]\n" +
-                "权限： worldedit.brush.copy\n" +
-                "说明： 左键点击一个物体的底座来复制。\n" +
-                "右键点击来粘贴\n" +
-                "-r 标记能够在粘贴时应用随机旋转\n" +
-                "注意：能和剪切板滚动一起搭配使用\n" +
-                "视频： https://www.youtube.com/watch?v=RPZIaTbqoZw\n" +
-                "/brush command <radius> [cmd1;cmd2...]\n" +
-                "权限： worldedit.brush.command\n" +
-                "说明： 在点击的位置执行一条命令。\n" +
-                "你的选区会延展到包括该点\n" +
-                "可用的变量： {x}, {y}, {z}, {world}, {size}\n" +
-                "/brush populateschematic <mask> <file|folder|url> [radius=30] [points=5] [-r]\n" +
-                "权限： worldedit.brush.populateschematic\n" +
-                "说明： 选择分散型schematic笔刷。\n" +
-                "-r 标记能够应用随机旋转\n" +
-                "/brush scmd <scatter-radius> <points> <cmd-radius=1> <cmd1;cmd2...>\n" +
-                "权限： worldedit.brush.scattercommand\n" +
-                "说明： 在表面的随机一点执行命令\n" +
-                "分散的半径是每个点之间的最小距离\n" +
-                "你的选区会延展到包括该点\n" +
-                "可用的变量： {x}, {y}, {z}, {world}, {size}\n" +
-                "/brush erode [radius=5]\n" +
-                "权限： worldedit.brush.erode\n" +
-                "说明： 侵蚀地形\n" +
-                "/brush pull [radius=5]\n" +
+    public void bursh(XiaoMingUser user){
+ user.sendMessage("关于命令\"/brush\"，您可以用的命令为:\n" +
+         "/brush copypaste\n" +
+         "/brush command\n" +
+         "/brush populateschematic\n" +
+         "/brush scmd\n" +
+         "/brush erode\n" +
+         "/brush pull\n" +
+         "/brush blendball\n" +
+         "/brush stencil\n" +
+         "/brush splatter\n" +
+         "/brush cylinder\n" +
+         "/brush shatter\n" +
+         "/brush circle\n" +
+         "/brush smooth\n" +
+         "/brush ex\n" +
+         "/brush gravity\n" +
+         "/brush sspl\n" +
+         "/brush spline\n" +
+         "/brush surface\n" +
+         "/brush layer\n" +
+         "/brush sphere\n" +
+         "/brush clipboard\n" +
+         "/brush recursive\n" +
+         "/brush scatter\n" +
+         "/brush line\n" +
+         "/brush height\n" +
+         "/brush butcher\n" +
+         "/brush flatten\n" +
+         "/brush cliff");
+    }
+    final String br = "/brush ";
+    final String perm = "fawe.question";
+    @Required(perm)
+    @Filter("/brush copypaste")
+    public void copypastebrush(XiaoMingUser user){
+        user.sendMessage("/brush copypaste [depth=5]"+"\n"+"权限： worldedit.brush.copy"+"\n"+"说明： 左键点击一个物体的底座来复制。"+"\n"+"右键点击来粘贴"+"\n"+"-r 标记能够在粘贴时应用随机旋转"+"\n"+"注意：能和剪切板滚动一起搭配使用"+"\n"+"视频： https://www.youtube.com/watch?v=RPZIaTbqoZw");
+    }
+    @Required(perm)
+    @Filter(br+"command")
+    public void brcommand(XiaoMingUser user){
+        user.sendMessage("/brush command <radius> [cmd1;cmd2...]"+"\n"+"权限： worldedit.brush.command"+"\n"+"说明： 在点击的位置执行一条命令。"+"\n"+"你的选区会延展到包括该点"+"\n"+"可用的变量： {x}, {y}, {z}, {world}, {size}");
+    }
+    @Required(perm)
+    @Filter(br+"populateschematic")
+    public void brpopulateschematic(XiaoMingUser user){
+        user.sendMessage("/brush populateschematic <mask> <file|folder|url> [radius=30] [points=5] [-r]"+"\n"+"权限： worldedit.brush.populateschematic"+"\n"+"说明： 选择分散型schematic笔刷。"+"\n"+"-r 标记能够应用随机旋转");
+    }
+    @Required(perm)
+    @Filter(br+"scmd")
+    public void scmdbrush(XiaoMingUser user){
+        user.sendMessage("/brush scmd <scatter-radius> <points> <cmd-radius=1> <cmd1cmd2...>\n" +
+                                    "权限： worldedit.brush.scattercommand\n" +
+                                    "说明： 在表面的随机一点执行命令\n" +
+                                    "分散的半径是每个点之间的最小距离\n" +
+                                    "你的选区会延展到包括该点\n" +
+                                    "可用的变量： {x}, {y}, {z}, {world}, {size}");
+    }
+
+    @Filter(br+"erode")
+    @Required(perm)
+    public void erode(XiaoMingUser user){
+        user.sendMessage("/brush erode [radius=5]\n" +
+            "权限： worldedit.brush.erode\n" +
+            "说明： 侵蚀地形");
+    }
+    @Filter(br+"pull")
+    @Required(perm)
+    public void pull(XiaoMingUser user){
+        user.sendMessage("/brush pull [radius=5]\n" +
                 "权限： worldedit.brush.pull\n" +
-                "说明： 将地形朝着你所在的方向隆起\n" +
-                "/brush blendball [radius=5]\n" +
+                "说明： 将地形朝着你所在的方向隆起");
+    }
+    @Filter(br+"blendball")
+    @Required(perm)
+    public void blendball(XiaoMingUser user){
+        user.sendMessage("/brush blendball [radius=5]\n" +
                 "权限： worldedit.brush.blendball\n" +
                 "说明： 平滑化，混合化地形\n" +
-                "图片： https://i.imgur.com/cNUQUkj.png -> https://i.imgur.com/hFOFsNf.png\n" +
-                "/brush stencil <pattern> [radius=5] [file|#clipboard|imgur=null] [rotation=360] [yscale=1.0]\n" +
+                "图片： https://i.imgur.com/cNUQUkj.png -> https://i.imgur.com/hFOFsNf.png");
+    }
+    @Filter(br+"stencil")
+    @Required(perm)
+    public void stuyuyen(XiaoMingUser user){
+        user.sendMessage("/brush stencil <pattern> [radius=5] [file|#clipboard|imgur=null] [rotation=360] [yscale=1.0]\n" +
                 "权限： worldedit.brush.stencil\n" +
                 "说明： 使用高度图来绘制出地形表面。\n" +
                 "-w 标记仅会应用于最大饱和度\n" +
-                "-r 标记会应用随机旋转\n" +
-                "/brush splatter <pattern> [radius=5] [seeds=1] [recursion=5] [solid=true]\n" +
+                "-r 标记会应用随机旋转");
+    }
+    @Required(perm)
+    @Filter(br+"splatter")
+    public void splatter(XiaoMingUser user){
+        user.sendMessage("/brush splatter <pattern> [radius=5] [seeds=1] [recursion=5] [solid=true]\n" +
                 "权限： worldedit.brush.splatter\n" +
                 "说明： 设置物体表面为随机方块。\n" +
                 "图片： https://i.imgur.com/hMD29oO.png\n" +
                 "使用示例： /br splatter stone,dirt 30 15\n" +
-                "注意：种子决定着会有多少斑点，递归次数决定着其大小，solid决定着模型是按照每个种子应用还是按照每个方块应用。\n" +
-                "/brush cylinder <block> [radius=2] [height=1] [-h]\n" +
+                "注意：种子决定着会有多少斑点，递归次数决定着其大小，solid决定着模型是按照每个种子应用还是按照每个方块应用。");
+    }
+    @Filter(br+"cylinder")
+    @Required(perm)
+    public void cylinder(XiaoMingUser user){
+        user.sendMessage("/brush cylinder <block> [radius=2] [height=1] [-h]\n" +
                 "权限： worldedit.brush.cylinder\n" +
                 "说明： 创建圆柱体。\n" +
                 "-h 标记会创建中空的圆柱体。");
-        user.sendPrivateMessage("/brush shatter <pattern> [radius=10] [count=10] \n" +
-                "权限： worldedit.brush.shatter\n" +
-                "说明： 创建将地形分成多个部分的不均匀的线\n" +
-                "图片： https://i.imgur.com/2xKsZf2.png\n" +
-                "/brush circle <pattern> [radius=5]\n" +
-                "权限： worldedit.brush.sphere\n" +
-                "说明： 围绕着你看向的方向创建一个圆。\n" +
-                "注意：无视笔刷的半径，并且启用预览可以帮助你操作的可能结果\n" +
-                "/brush smooth [size=2] [iterations=4] [-n]\n" +
-                "权限： worldedit.brush.smooth\n" +
-                "说明： 选择地形平滑化笔刷。\n" +
-                "-n 标记会只更改自然生成的方块。\n" +
-                "/brush ex [radius=5]\n" +
-                "权限： worldedit.brush.ex\n" +
-                "说明： 火焰熄灭笔刷的简写\n" +
-                "/brush gravity [radius=5] [-h]\n" +
-                "权限： worldedit.brush.gravity\n" +
-                "说明： 这个笔刷会模仿重力的作用。\n" +
-                "-h 标记能够让它从世界的最大Y坐标开始计算，而不是点击方块的Y坐标。\n" +
-                "/brush sspl <pattern> [size=0] [tension=0] [bias=0] [continuity=0] [quality=10]\n" +
-                "权限： worldedit.brush.surfacespline\n" +
-                "说明： 在地面上创建一条曲线。\n" +
-                "视频： https://www.youtube.com/watch?v=zSN-2jJxXlM\n" +
-                "/brush spline <pattern>\n" +
-                "权限： worldedit.brush.spline\n" +
-                "说明： 点击一些物体，然后再次点击相同的方块来让你的物体之间进行连接。\n" +
-                "笔刷半径设置过小，或是点击位置错误或导致变形。形状必须是简单的线条或者封闭的环形。\n" +
-                "图片： http://i.imgur.com/CeRYAoV.jpg -> http://i.imgur.com/jtM0jA4.png\n" +
-                "图片2： http://i.imgur.com/bUeyc72.png -> http://i.imgur.com/tg6MkcF.png\n" +
-                "/brush surface <pattern> [radius=5]\n" +
-                "权限： worldedit.brush.surface\n" +
-                "说明： 使用高度图来画出表面。\n" +
-                "-w 标记仅会应用于最大饱和度\n" +
-                "-r 标记会应用随机旋转\n" +
-                "/brush layer <radius> [color|<pattern1> <patern2>...]\n" +
-                "权限： worldedit.brush.layer\n" +
-                "说明： 使用覆盖层来替换地形。\n" +
-                "示例：/br layer 5 95:1 95:2 35:15 - 会在地面上放置一些覆盖层\n" +
-                "图片： https://i.imgur.com/XV0vYoX.png\n" +
-                "/brush sphere <pattern> [radius=2] [-h]\n" +
-                "权限： worldedit.brush.sphere\n" +
-                "说明： 创建一个球体。\n" +
-                "-h 标记能够创建中空的球体。\n" +
-                "/brush clipboard\n" +
-                "权限： worldedit.brush.clipboard\n" +
-                "说明： 选择剪切板笔刷。\n" +
-                "-a 标记会使其不会粘贴空气方块。\n" +
-                "不输入 -p 标记，粘贴后的内容的中心会出现在目标位置。输入该标记后，粘贴内容所在的位置就会根据你在复制内容时所站的位置而定义了。\n" +
-                "/brush recursive <pattern-to> [radius=5]\n" +
-                "权限： worldedit.brush.recursive\n" +
-                "说明： 设置所有连接起来的方块。\n" +
-                "-d 标记会应用深度优先的顺序\n" +
-                "注意：设置蒙版可以递归指定的方块\n" +
-                "/brush scatter <pattern> [radius=5] [points=5] [distance=1] [-o]\n" +
-                "权限： worldedit.brush.scatter\n" +
-                "说明： 在地面上随机散布方块。\n" +
-                "-o 标记会覆盖原方块\n" +
-                "视频： https://youtu.be/RPZIaTbqoZw?t=34s\n" +
-                "/brush line <pattern> [radius=0] [-h] [-s] [-f]\n" +
-                "权限： worldedit.brush.line\n" +
-                "说明： 创建线段。\n" +
-                "-h 标记仅会创建其外壳\n" +
-                "-s 标记在创建之后会选择点击的点。\n" +
-                "-f 标记会创建平坦的线段。");
-        user.sendPrivateMessage("/brush height [radius=5] [file|#clipboard|imgur=null] [rotation=0] [yscale=1.00] [-h]\n" +
-                "权限： worldedit.brush.height\n" +
-                "说明： 这个笔刷可以使地形上升或下降。\n" +
-                "- -r 标记启用随机坐标旋转\n" +
-                "- -l 标记使得该笔刷也会在雪层中工作\n" +
-                "- -s 标记禁用平滑\n" +
-                "注意！注意！如果你要降低地形的话请将yscale的值设置为负数！\n" +
-                "在雪层中应用的图片： https://i.imgur.com/Hrzn0I4.png\n" +
-                "/brush butcher [radius=5] [-p] [-l] [-a] [-n] [-g] [-b] [-t] [-f] [-r]\n" +
+    }
+    @Filter(br+"buther")
+    @Required(perm)
+    public void buther(XiaoMingUser user){
+        user.sendMessage("/brush butcher [radius=5] [-p] [-l] [-a] [-n] [-g] [-b] [-t] [-f] [-r]\n" +
                 "权限： worldedit.brush.butcher\n" +
                 "说明： 击杀在指定的半径内的怪物。\n" +
                 "可用的标记：\n" +
@@ -685,120 +673,164 @@ public class faweUtilProInteractors extends SimpleInteractors<cn.qfys521.faweUti
                 "-t 也击杀带有名字的怪物\n" +
                 "-f 相当于这以前所有标记的混合\n" +
                 "-r 也击杀盔甲架\n" +
-                "-l 目前无任何作用\n" +
-                "/brush flatten [radius=5] [file|#clipboard|imgur=null] [rotation=0] [yscale=1.00] [-h]\n" +
+                "-l 目前无任何作用");
+    }
+    @Required(perm)
+    @Filter(br+"height")
+    public void heightbr(XiaoMingUser user){
+        user.sendMessage("/brush height [radius=5] [file|#clipboard|imgur=null] [rotation=0] [yscale=1.00] [-h]\n" +
+                "权限： worldedit.brush.height\n" +
+                "说明： 这个笔刷可以使地形上升或下降。\n" +
+                "- -r 标记启用随机坐标旋转\n" +
+                "- -l 标记使得该笔刷也会在雪层中工作\n" +
+                "- -s 标记禁用平滑\n" +
+                "注意！注意！如果你要降低地形的话请将yscale的值设置为负数！\n" +
+                "在雪层中应用的图片： https://i.imgur.com/Hrzn0I4.png");
+    }
+    @Required(perm)
+    @Filter(br+"flatten")
+    public void flatten(XiaoMingUser user){
+        user.sendMessage("/brush flatten [radius=5] [file|#clipboard|imgur=null] [rotation=0] [yscale=1.00] [-h]\n" +
                 "权限： worldedit.brush.height\n" +
                 "说明： 平坦笔刷，可以使地形平坦\n" +
                 "- -r 标记启用随机坐标旋转\n" +
                 "- -l 标记使得该笔刷也会在雪层中工作\n" +
-                "- -s 标记禁用平滑\n" +
-                "/brush cliff [radius=5] [file|#clipboard|imgur=null] [rotation=0] [yscale=1.00] [-h]\n" +
+                "- -s 标记禁用平滑");
+    }
+    @Required(perm)
+    @Filter(br+"cliff")
+    public void cliff(XiaoMingUser user){
+        user.sendMessage("/brush cliff [radius=5] [file|#clipboard|imgur=null] [rotation=0] [yscale=1.00] [-h]\n" +
                 "权限： worldedit.brush.height\n" +
                 "说明： 这个笔刷可以平坦地形且创建悬崖。\n" +
                 "- -r 标记启用随机坐标旋转\n" +
                 "- -l 标记使得该笔刷也会在雪层中工作\n" +
                 "- -s 标记禁用平滑");
     }
-
-    @Required("fawe.warn.question")
-    @Filter("/tool")
-    public void tool(XiaoMingUser user) {
-        user.sendError("消息过长，我已经通过私信调用给你了QAQ");
-        user.sendPrivateMessage("/tool tree [type]\n" +
-                "权限： worldedit.tool.tree\n" +
-                "说明： 生成树的工具\n" +
-                "/tool repl <block>\n" +
-                "权限： worldedit.tool.replacer\n" +
-                "说明： 方块替换工具\n" +
-                "/tool info\n" +
-                "权限： worldedit.tool.info\n" +
-                "说明： 方块信息工具\n" +
-                "/tool lrbuild <leftclick block> <rightclick block>\n" +
-                "权限： worldedit.tool.lrbuild\n" +
-                "说明： 大范围建筑工具\n" +
-                "/tool cycler\n" +
-                "权限： worldedit.tool.data-cycler\n" +
-                "说明： 方块数据值循环工具\n" +
-                "/tool deltree\n" +
-                "权限： worldedit.tool.deltree\n" +
-                "说明： 移除漂浮的树的工具\n" +
-                "/tool inspect\n" +
-                "权限： worldedit.tool.inspect\n" +
-                "说明： 选择检查笔刷\n" +
-                "/tool floodfill <pattern> <range>\n" +
-                "权限： worldedit.tool.flood-fill\n" +
-                "说明： 池塘填充工具\n" +
-                "/tool farwand\n" +
-                "权限： worldedit.tool.farwand\n" +
-                "说明： 远程选区工具\n");
+    @Required(perm)
+    @Filter(br+"line")
+    public void brushLine(XiaoMingUser user){
+        user.sendMessage("/brush line <pattern> [radius=0] [-h] [-s] [-f]\n" +
+                "权限： worldedit.brush.line\n" +
+                "说明： 创建线段。\n" +
+                "-h 标记仅会创建其外壳\n" +
+                "-s 标记在创建之后会选择点击的点。\n" +
+                "-f 标记会创建平坦的线段。");
     }
-
-    @Required("fawe.warn.question")
-    @Filter("/anvil")
-    public void anvil(XiaoMingUser user) {
-        user.sendError("消息过长，我已经通过私信调用发送给你啦QAQ");
-        user.sendPrivateMessage("/anvil count <ids> [-d]\n" +
-                "权限： worldedit.anvil.count\n" +
-                "说明： 为选区中的方块计数\n" +
-                "/anvil replace [from-block] <to-block>\n" +
-                "权限： worldedit.anvil.replace\n" +
-                "说明： 用一种方块替换选区中的所有另一种方块\n" +
-                "/anvil replaceall <folder> [from-block] <to-block> [-d] [-f]\n" +
-                "权限： worldedit.anvil.replaceall\n" +
-                "说明： 用另一种方块替换选区中的所有方块\n" +
-                "-d 标记会禁用通配符的匹配\n" +
-                "/anvil copy\n" +
-                "权限： worldedit.anvil.copychunks\n" +
-                "说明： 将区块延迟复制到你的anvil剪切板中\n" +
-                "/anvil paste [-c]\n" +
-                "权限： worldedit.anvil.pastechunks\n" +
-                "说明： 从anvil剪切板将内容粘贴出来。\n" +
-                "-c 标记会调整将内容粘贴到区块中。\n" +
-                "/anvil distr\n" +
-                "权限： worldedit.anvil.distr\n" +
-                "说明： 用另一种方块替换选区中的所有方块\n" +
-                "/anvil trimallplots\n" +
-                "权限： worldedit.anvil.trimallplots\n" +
-                "说明： 修剪地皮世界中的区块\n" +
-                "未认领的区块会被删除\n" +
-                "未修改的区块会被删除\n" +
-                "使用 -v 来删除没有人去过的区块\n" +
-                "/anvil countall <folder> [hasSky] <id> [-d]\n" +
-                "权限： worldedit.anvil.countall\n" +
-                "说明： 为世界中的方块计数\n" +
-                "/anvil clear\n" +
-                "权限： worldedit.anvil.clear\n" +
-                "说明： 清除选区的区块（不整理磁盘碎片，直接删除）\n" +
-                "/anvil removelayers <id>\n" +
-                "权限： worldedit.anvil.removelayer\n" +
-                "说明： 如果某一区块的顶层方块全部都与提供的方块类型匹配成功的话，就移除顶层方块。\n" +
-                "/anvil replacepattern [from-mask] <to-pattern>\n" +
-                "权限： worldedit.anvil.replace\n" +
-                "说明： 移除选区内所有匹配对应样式模板的方块\n" +
-                "/anvil remapall <folder>\n" +
-                "权限： worldedit.anvil.remapall\n" +
-                "说明： 将世界在MCPE和PC的存档格式之间转换\n" +
-                "/anvil deletealloldregions <folder> <time>\n" +
-                "权限： worldedit.anvil.deletealloldregions\n" +
-                "说明： 移除一段时间内没有人进入的区域\n" +
-                "你可以使用秒 (s), 分钟 (m), 小时 (h), 天 (d), 周 (w),和 年 (y) 来计算时间\n" +
-                "(请注意：月份不是计算时间的单位)\n" +
-                "举个例子： 8h5m12s\n" +
-                "/anvil replaceallpattern <folder> [from-block] <to-pattern> [-d] [-m]\n" +
-                "权限： worldedit.anvil.replaceall\n" +
-                "说明： 将选区中所有的方块替换成另一种方块样式\n" +
-                "/anvil deleteallunvisited <folder> <age-ticks> [file-age=60000]\n" +
-                "权限： worldedit.anvil.deleteallunvisited\n" +
-                "说明： 会将满足以下条件之一的全部区块移除： 加载时间没有到指定整数游戏刻的区块(20t = 1s)；\n" +
-                "在创建后，持续时间 file-duration (ms) 内没有被玩家访问的；\n" +
-                "在过去的 chunk-inactivity (ms)时间中没有被使用的。 因此，我们推荐的自动保存时间间隔便是 file-duration 和 chunk-inactivity 的值。");
+    @Required(perm)
+    @Filter(br+"scatter")
+    public void scatter(XiaoMingUser user){
+        user.sendMessage("/brush scatter <pattern> [radius=5] [points=5] [distance=1] [-o]\n" +
+            "权限： worldedit.brush.scatter\n" +
+            "说明： 在地面上随机散布方块。\n" +
+            "-o 标记会覆盖原方块\n" +
+            "视频： https://youtu.be/RPZIaTbqoZw?t=34s");
     }
-
-    @Required("fawe.warn.question")
+    @Filter(br+"recursive")
+    @Required(perm)
+    public void recursive(XiaoMingUser user){
+        user.sendMessage("/brush recursive <pattern-to> [radius=5]\n" +
+                "权限： worldedit.brush.recursive\n" +
+                "说明： 设置所有连接起来的方块。\n" +
+                "-d 标记会应用深度优先的顺序\n" +
+                "注意：设置蒙版可以递归指定的方块");
+    }
+    @Required(perm)
+    @Filter(br+"clipboard")
+    public void clipboard(XiaoMingUser user){
+        user.sendMessage("/brush clipboard\n" +
+                "权限： worldedit.brush.clipboard\n" +
+                "说明： 选择剪切板笔刷。\n" +
+                "-a 标记会使其不会粘贴空气方块。\n" +
+                "不输入 -p 标记，粘贴后的内容的中心会出现在目标位置。输入该标记后，粘贴内容所在的位置就会根据你在复制内容时所站的位置而定义了。");
+    }
+    @Required(perm)
+    @Filter(br+"sphere")
+    public void spherebr(XiaoMingUser user){
+        user.sendMessage("/brush sphere <pattern> [radius=2] [-h]\n" +
+                "权限： worldedit.brush.sphere\n" +
+                "说明： 创建一个球体。\n" +
+                "-h 标记能够创建中空的球体。");
+    }
+    @Required(perm)
+    @Filter(br+"layer")
+    public void layerbr(XiaoMingUser user){
+        user.sendMessage("/brush layer <radius> [color|<pattern1> <patern2>...]\n" +
+                "权限： worldedit.brush.layer\n" +
+                "说明： 使用覆盖层来替换地形。\n" +
+                "示例：/br layer 5 95:1 95:2 35:15 - 会在地面上放置一些覆盖层\n" +
+                "图片： https://i.imgur.com/XV0vYoX.png");
+    }
+    @Required(perm)
+    @Filter(br+"surface")
+    public void surface(XiaoMingUser user){
+        user.sendMessage("/brush surface <pattern> [radius=5]\n" +
+                "权限： worldedit.brush.surface\n" +
+                "说明： 使用高度图来画出表面。\n" +
+                "-w 标记仅会应用于最大饱和度\n" +
+                "-r 标记会应用随机旋转");
+    }
+    @Required(perm)
+    @Filter(br+"spline")
+    public void spline(XiaoMingUser user){
+        user.sendMessage("/brush spline <pattern>\n" +
+                "权限： worldedit.brush.spline\n" +
+                "说明： 点击一些物体，然后再次点击相同的方块来让你的物体之间进行连接。\n" +
+                "笔刷半径设置过小，或是点击位置错误或导致变形。形状必须是简单的线条或者封闭的环形。\n" +
+                "图片： http://i.imgur.com/CeRYAoV.jpg -> http://i.imgur.com/jtM0jA4.png\n" +
+                "图片2： http://i.imgur.com/bUeyc72.png -> http://i.imgur.com/tg6MkcF.png");
+    }
+    @Required(perm)
+    @Filter(br+"sspl")
+    public void sspl(XiaoMingUser user){
+        user.sendMessage("/brush sspl <pattern> [size=0] [tension=0] [bias=0] [continuity=0] [quality=10]\n" +
+                "权限： worldedit.brush.surfacespline\n" +
+                "说明： 在地面上创建一条曲线。\n" +
+                "视频： https://www.youtube.com/watch?v=zSN-2jJxXlM");
+    }
+    @Required(perm)
+    @Filter(br+"gravity")
+    public void gravity(XiaoMingUser user){
+        user.sendMessage("/brush gravity [radius=5] [-h]\n" +
+                "权限： worldedit.brush.gravity\n" +
+                "说明： 这个笔刷会模仿重力的作用。\n" +
+                "-h 标记能够让它从世界的最大Y坐标开始计算，而不是点击方块的Y坐标。");
+    }
+    @Filter(br+"ex")
+    @Required(perm)
+    public void exbr(XiaoMingUser user){
+        user.sendMessage("/brush ex [radius=5]\n" +
+                "权限： worldedit.brush.ex\n" +
+                "说明： 火焰熄灭笔刷的简写");
+    }
+    @Filter(br+"smooth")
+    @Required(perm)
+    public void smoothbr(XiaoMingUser user){
+        user.sendMessage("/brush smooth [size=2] [iterations=4] [-n]\n" +
+                "权限： worldedit.brush.smooth\n" +
+                "说明： 选择地形平滑化笔刷。\n" +
+                "-n 标记会只更改自然生成的方块。");
+    }
+    @Filter(br+"circle")
+    @Required(perm)
+    public void circlebr(XiaoMingUser user){
+        user.sendMessage("/brush circle <pattern> [radius=5]\n" +
+                "权限： worldedit.brush.sphere\n" +
+                "说明： 围绕着你看向的方向创建一个圆。\n" +
+                "注意：无视笔刷的半径，并且启用预览可以帮助你操作的可能结果");
+    }
+    @Filter(br+"shatter")
+    @Required(perm)
+    public void shatter(XiaoMingUser user){
+        user.sendMessage("/brush shatter <pattern> [radius=10] [count=10]\n" +
+                "权限： worldedit.brush.shatter\n" +
+                "说明： 创建将地形分成多个部分的不均匀的线\n" +
+                "图片： https://i.imgur.com/2xKsZf2.png");
+    }
+    @Required("fawe.question")
     @Filter("/schematic")
     public void schemtic(XiaoMingUser user) {
-        user.sendError("消息过长，我已经通过私信调用发送给你啦QAQ");
-        user.sendPrivateMessage("/schematic load [<format>] <filename>\n" +
+        user.sendMessage("/schematic load [<format>] <filename>\n" +
                 "权限： worldedit.clipboard.load, worldedit.schematic.load, worldedit.schematic.upload, worldedit.schematic.load.other\n" +
                 "说明： 将某个schematic文件导入到你的剪切板中\n" +
                 "/schematic delete <filename>\n" +
