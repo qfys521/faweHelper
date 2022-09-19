@@ -2,6 +2,7 @@
 Xiaoming plugins:faweUtilPro
 [![State-of-the-art Shitcode](https://img.shields.io/static/v1?label=State-of-the-art&message=Shitcode&color=7B5804)](https://github.com/trekhleb/state-of-the-art-shitcode)
 ># faweUtilPro：
+##本插件将于近期重构。
 >>一款基于 ***[XiaomingHost](https://github.com/chuanweise/XiaoMingBot/)*** 编写的插件
 [小明连接](https://github.com/chuanweise/XiaoMingBot)  
 [官方文档](http://chuanwise.cn:10074/#/manual)  
